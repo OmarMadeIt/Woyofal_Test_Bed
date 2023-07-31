@@ -55,7 +55,7 @@ def calculate_nb_watts(montant_encours, montant_nouveau, seuil_1, seuil_2, Prix_
     conso_tranche_2 = montant_tranche_2_HT/Prix_tranche_2
     conso_tranche_3 = montant_tranche_3_HT/Prix_tranche_3
     nb_watts = conso_tranche_1 + conso_tranche_2 + conso_tranche_3
-    return nb_watts
+    return nb_watts, conso_tranche_1, conso_tranche_2, conso_tranche_3
 
 # Interface utilisateur avec Streamlit
 st.title("Simulateur Calcul Woyofal")
@@ -81,6 +81,10 @@ montant_encours = st.number_input("Quel est le montant total que vous avez déj�
 montant_nouveau = st.number_input("Combien souhaitez-vous recharger ?", value=0, step=1)
 
 if st.button("Calculer"):
-    nb_watts = calculate_nb_watts(montant_encours, montant_nouveau, seuil_1, seuil_2, Prix_tranche_1, Prix_tranche_2, Prix_tranche_3)
+    nb_watts, conso_tranche_1, conso_tranche_2, conso_tranche_3 = c = calculate_nb_watts(montant_encours, montant_nouveau, seuil_1, seuil_2, Prix_tranche_1, Prix_tranche_2, Prix_tranche_3)
     st.write("Vous avez droit à :", nb_watts)
+    st.write("Détails")
+    st.write("Puissance Tranche 1 :", conso_tranche_1, text_format="10px")
+    st.write("Puissance Tranche 2 :", conso_tranche_2)
+    st.write("Puissance Tranche 3 :", conso_tranche_3)
     
