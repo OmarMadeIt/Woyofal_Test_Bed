@@ -1,15 +1,15 @@
 import streamlit as st
 
 # Fonction pour calculer la variable nb_watts
-def calculate_nb_watts(montant_encours, montant_nouveau):
-    seuil_1 = 14466
-    seuil_2 = 28436
+def calculate_nb_watts(montant_encours, montant_nouveau, seuil_1, seuil_2, Prix_tranche_1, Prix_tranche_2, Prix_tranche_3):
+    #seuil_1 = 14466
+    #seuil_2 = 28436
     redevance = 429
     TVA =0.18
     Taxe_Com = 0.025
-    Prix_tranche_1 = 91.17
-    Prix_tranche_2 = 136.49
-    Prix_tranche_3 = 149.06
+    #Prix_tranche_1 = 91.17
+    #Prix_tranche_2 = 136.49
+    #Prix_tranche_3 = 149.06
     cumul = montant_nouveau+montant_encours
 
     if cumul < seuil_1:
@@ -59,11 +59,28 @@ def calculate_nb_watts(montant_encours, montant_nouveau):
 
 # Interface utilisateur avec Streamlit
 st.title("Simulateur Calcul Woyofal")
+st.write("Veuillez choisir le type de foyer :")
+foyer_type = st.selectbox("Sélectionnez le type de foyer :", ["DPP", "DMP"])
+
+if foyer_type == "DPP":
+    seuil_1 = 14466
+    seuil_2 = 28436
+    Prix_tranche_1 = 91.17
+    Prix_tranche_2 = 136.49
+    Prix_tranche_3 = 149.06
+    
+elif foyer_type == "DMP":
+    seuil_1 = 7127
+    seuil_2 = 43909
+    Prix_tranche_1 = 111.23
+    Prix_tranche_2 = 143.54
+    Prix_tranche_3 = 150.23
+    
 st.write("Veuillez préciser les renseignements ci-dessous :")
 montant_encours = st.number_input("Quel est le montant total que vous avez déjà rechargé au cours de ce mois ?", value=0, step=1)
 montant_nouveau = st.number_input("Combien souhaitez-vous recharger ?", value=0, step=1)
 
 if st.button("Calculer"):
-    nb_watts = calculate_nb_watts(montant_encours, montant_nouveau)
+    nb_watts = calculate_nb_watts(montant_encours, montant_nouveau, seuil_1, seuil_2, Prix_tranche_1, Prix_tranche_2, Prix_tranche_3)
     st.write("Vous avez droit à :", nb_watts)
     
