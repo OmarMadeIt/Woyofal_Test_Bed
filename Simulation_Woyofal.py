@@ -60,7 +60,7 @@ def calculate_nb_watts(montant_encours, montant_nouveau, seuil_1, seuil_2, Prix_
 # Interface utilisateur avec Streamlit
 st.title("Simulateur Calcul Woyofal")
 st.write("Veuillez choisir le type de foyer :")
-foyer_type = st.selectbox("Sélectionnez le type de foyer :", ["DPP", "DMP"])
+foyer_type = st.selectbox("Sélectionnez le type de foyer :", ["DPP (Domestique Petite Puissance)", "DMP (Domestique Moyenne Puissance)"])
 
 if foyer_type == "DPP":
     seuil_1 = 14466
