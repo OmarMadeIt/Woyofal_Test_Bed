@@ -77,8 +77,11 @@ elif foyer_type == "DMP (Domestique Moyenne Puissance)":
     Prix_tranche_3 = 150.23
     
 st.write("Veuillez préciser les renseignements ci-dessous :")
-montant_encours = st.number_input("Quel est le montant total que vous avez déjà rechargé au cours de ce mois ?", value=0, step=1)
-montant_nouveau = st.number_input("Combien souhaitez-vous recharger ?", value=0, step=1)
+#montant_encours = st.number_input("Quel est le montant total que vous avez déjà rechargé au cours de ce mois ?", value=0, step=1)
+montant_encours = st.slider("Quel est le montant total que vous avez déjà rechargé au cours de ce mois ?", min_value=0, max_value=100000, step=1000, value=0)
+
+#montant_nouveau = st.number_input("Combien souhaitez-vous recharger ?", value=0, step=1)
+montant_nouveau = st.slider("Combien souhaitez-vous recharger ?", min_value=0, max_value=100000, step=1000, value=0)
 
 if st.button("Calculer"):
     nb_watts, conso_tranche_1, conso_tranche_2, conso_tranche_3=calculate_nb_watts(montant_encours,montant_nouveau, seuil_1, seuil_2, Prix_tranche_1, Prix_tranche_2, Prix_tranche_3)
