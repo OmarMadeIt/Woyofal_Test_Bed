@@ -49,7 +49,8 @@ def calculate_nb_watts(montant_encours, montant_nouveau, seuil_1, seuil_2, Prix_
         montant_tranche_1_HT = montant_tranche_1-montant_tranche_1*Taxe_Com
 
     montant_tranche_2_HT = montant_tranche_2-montant_tranche_2*Taxe_Com
-    montant_tranche_3_HT = montant_tranche_3-montant_tranche_3*Taxe_Com-montant_tranche_3*TVA
+    #montant_tranche_3_HT = montant_tranche_3-montant_tranche_3*Taxe_Com-montant_tranche_3*TVA
+    montant_tranche_3_HT = (montant_tranche_3-montant_tranche_3*Taxe_Com)/1.18
 
     conso_tranche_1 = round(montant_tranche_1_HT/Prix_tranche_1,2)
     conso_tranche_2 = round(montant_tranche_2_HT/Prix_tranche_2,2)
