@@ -78,10 +78,12 @@ elif foyer_type == "DMP (Domestique Moyenne Puissance)":
     
 st.write("Veuillez préciser les renseignements ci-dessous :")
 #montant_encours = st.number_input("Quel est le montant total que vous avez déjà rechargé au cours de ce mois ?", value=0, step=1)
-montant_encours = st.slider("Quel est le montant total que vous avez déjà rechargé au cours de ce mois ?", min_value=0, max_value=100000, step=500, value=0)
+#montant_encours = st.slider("Quel est le montant total que vous avez déjà rechargé au cours de ce mois ?", min_value=0, max_value=100000, step=500, value=0)
+montant_encours = st.number_input("Quel est le montant total que vous avez déjà rechargé au cours de ce mois ?",value=0)
+
 
 #montant_nouveau = st.number_input("Combien souhaitez-vous recharger ?", value=0, step=1)
-montant_nouveau = st.slider("Combien souhaitez-vous recharger ?", min_value=0, max_value=100000, step=500, value=1000)
+montant_nouveau = st.number_input("Combien souhaitez-vous recharger ?", value=1000)
 
 
 
