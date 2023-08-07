@@ -96,4 +96,8 @@ if st.button("Calculer"):
     st.write("Puissance Tranche 1 :", conso_tranche_1)
     st.write("Puissance Tranche 2 :", conso_tranche_2)
     st.write("Puissance Tranche 3 :", conso_tranche_3)
-    
+
+st.write('')
+st.write('Application Créée par Omar SECK - www.linkedin.com/in/omar-seck-73a96663', text_size='small')
+
+#st.write('Application Créée par Omar SECK - www.linkedin.com/in/omar-seck-73a96663')
