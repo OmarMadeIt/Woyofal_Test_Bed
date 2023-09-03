@@ -1,5 +1,5 @@
-import streamlit as st
 import requests
+import streamlit as st
 from streamlit_lottie import st_lottie
 
 # Fonction pour calculer la variable nb_watts
